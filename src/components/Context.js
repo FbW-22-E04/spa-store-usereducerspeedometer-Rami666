@@ -1,10 +1,13 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const Context = createContext();
 
 
 const CarContextProvider = ({children}) => {
-    return <Context.Provider>
+
+const [counter, setCounter] = useState(0);
+
+    return <Context.Provider value={{counter, setCounter}}>
         {children}
         </Context.Provider>;
     };
